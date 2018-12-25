@@ -91,15 +91,15 @@ class rbt:
 
 
 if __name__ == "__main__":
-    ss = [
-        { "id": 951, "name": "mohammad Javad", "lastname": "asadi" },
-        { "id": 952, "name": "mojtaba", "lastname": "qoli zade" },
-        { "id": 953, "name": "rasam", "lastname": "moqadam" },
-        { "id": 954, "name": "erfan", "lastname": "arefi" },
-        { "id": 955, "name": "maniya", "lastname": "baqeri" },
-        { "id": 956, "name": "fazele", "lastname": "mirpour" },
-        { "id": 957, "name": "kimia", "lastname": "nemati" }
-    ]
+    ss = []
+    ssfile = open("ss.txt", "r")
+    ssl = ssfile.readlines()
+    ssfile.close()
+    for l in ssl:
+        l = l.split(",")
+        ss.append({ "id": l[0], "name": l[1], "lastname": l[2] })
+
+
     tree = rbt("lastname")
     for s in ss:
         tree.add(s)
